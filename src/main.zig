@@ -269,27 +269,37 @@ pub fn main(init: std.process.Init) !void {
     defer aggregate_stats.languages.deinit(allocator);
     defer aggregate_stats.language_colors.deinit(allocator);
     for (stats.repositories) |repository| {
-        if (glob.matchAny(exclude_repos orelse &.{}, repository.name) or
-            (args.exclude_private and repository.private))
-        {
-            continue;
-        }
+    if (glob.matchAny(exclude_repos orelse &.{}, repository.name) or
+        (args.exclude_private and repository.private))
+    {
+        continue;
+    }
+
+    const is_owned = if (std.mem.indexOfScalar(u8, repository.name, '/')) |slash| blk: {
+        break :blk std.mem.eql(u8, repository.name[0..slash], stats.user);
+    } else false;
+
+    if (is_owned) {
         aggregate_stats.stars += repository.stars;
         aggregate_stats.forks += repository.forks;
-        aggregate_stats.lines_changed += repository.lines_changed;
-        aggregate_stats.views += repository.views;
-        aggregate_stats.repos += 1;
-        if (repository.languages) |langs| for (langs) |language| {
-            if (glob.matchAny(exclude_langs orelse &.{}, language.name)) {
-                continue;
-            }
-            if (language.color) |color| {
-                try aggregate_stats.language_colors.put(
-                    allocator,
-                    language.name,
-                    color,
-                );
-            }
+    }
+
+    aggregate_stats.lines_changed += repository.lines_changed;
+    aggregate_stats.views += repository.views;
+    aggregate_stats.repos += 1;
+
+    if (repository.languages) |langs| for (langs) |language| {
+        if (glob.matchAny(exclude_langs orelse &.{}, language.name)) {
+            continue;
+        }
+
+        if (language.color) |color| {
+            try aggregate_stats.language_colors.put(
+                allocator,
+                language.name,
+                color,
+            );
+        }
             var total = aggregate_stats.languages.get(language.name) orelse 0;
             total += language.size;
             try aggregate_stats.languages.put(allocator, language.name, total);
