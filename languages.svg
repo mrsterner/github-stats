@@ -134,31 +134,31 @@ div.ellipsis {
 <span class="progress">
 <span style="
   background-color: #b07219; 
-  width: 65.656%;
+  width: 65.734%;
 " class="progress-item"></span><span style="
   background-color: #A97BFF; 
-  width: 31.360%;
+  width: 31.288%;
 " class="progress-item"></span><span style="
   background-color: #355570; 
-  width: 1.030%;
+  width: 1.028%;
 " class="progress-item"></span><span style="
   background-color: #555555; 
-  width: 0.481%;
+  width: 0.480%;
 " class="progress-item"></span><span style="
   background-color: #5686a5; 
   width: 0.389%;
 " class="progress-item"></span><span style="
   background-color: #7355dd; 
-  width: 0.351%;
+  width: 0.350%;
 " class="progress-item"></span><span style="
   background-color: #f1e05a; 
-  width: 0.188%;
+  width: 0.187%;
 " class="progress-item"></span><span style="
   background-color: #5e5086; 
-  width: 0.164%;
+  width: 0.163%;
 " class="progress-item"></span><span style="
   background-color: #ec915c; 
-  width: 0.121%;
+  width: 0.120%;
 " class="progress-item"></span><span style="
   background-color: #663399; 
   width: 0.108%;
@@ -170,7 +170,7 @@ div.ellipsis {
   width: 0.035%;
 " class="progress-item"></span><span style="
   background-color: #3572A5; 
-  width: 0.025%;
+  width: 0.024%;
 " class="progress-item"></span><span style="
   background-color: #427819; 
   width: 0.012%;
@@ -209,7 +209,7 @@ div.ellipsis {
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Java</span>
-  <span class="percent">65.66%</span>
+  <span class="percent">65.73%</span>
 </li>
 <li style="animation-delay: 300ms;">
   <svg 
@@ -225,7 +225,7 @@ div.ellipsis {
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Kotlin</span>
-  <span class="percent">31.36%</span>
+  <span class="percent">31.29%</span>
 </li>
 <li style="animation-delay: 450ms;">
   <svg 
